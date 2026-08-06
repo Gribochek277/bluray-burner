@@ -1,0 +1,25 @@
+repository: serhii/bluray-burner
+commit: ffe2126274e91fdf0daf154468c5d649230ca8a0
+date: 2026-08-06T20:43:07+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+Fix false verification failure after successful BD-R burn
+On BD-R SRM+POW a successful growisofs burn legitimately leaves the
+track 'partial incremental' (track is closed, session close is skipped
+by design), and growisofs ejects/reloads the tray afterwards - over USB
+the reload can fail, so the drive reports 'no media' for a while. The
+old check (track_state immediately + 'partial' == failure) declared the
+burn FAILED and the disc wasted. Verified on the USA-VAN disc: burn was
+100% successful (87/87 files, md5 match vs staging).
+
+Verification is now: growisofs rc + error markers in the log; after a
+clean burn, wait for the drive to present the disc (retries, then tray
+close), and if it never appears, ask the user to confirm instead of
+declaring the disc wasted.
+
+---
+Source code is NOT published on GitHub.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
