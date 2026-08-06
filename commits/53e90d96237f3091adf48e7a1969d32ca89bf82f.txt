@@ -1,0 +1,13 @@
+repository: serhii/bluray-burner
+commit: 53e90d96237f3091adf48e7a1969d32ca89bf82f
+date: 2026-08-06T22:47:08+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+Remove .opencode session state from repo
+
+---
+Source code is NOT published on GitHub.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
