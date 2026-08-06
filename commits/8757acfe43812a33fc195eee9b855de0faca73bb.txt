@@ -1,0 +1,24 @@
+repository: serhii/bluray-burner
+commit: 8757acfe43812a33fc195eee9b855de0faca73bb
+date: 2026-08-06T22:47:03+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+Fix disc capacity detection and add pre-burn size guard
+detect_capacity() matched 'Track size:' which blank BD-Rs do not
+report, so capacity fell back to the unsafe 25GB decimal default
+(25,000,000,000 > real 24,756,879,360). A 24.87GB set passed the
+plan, and the burn failed with WRITE@LBA INVALID ADDRESS at the very
+last block (12,088,320), wasting the disc.
+
+- detect_capacity: use 'READ CAPACITY' line (always present) first
+- apply a 2% safety margin to usable capacity in all paths
+  (auto-detect, --capacity, interactive fallback, dry-run)
+- after staging, verify actual staged bytes against usable capacity
+  and abort before the burn if the set does not fit
+
+---
+Source code is NOT published on GitHub.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
