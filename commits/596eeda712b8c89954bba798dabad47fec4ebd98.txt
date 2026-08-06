@@ -1,0 +1,13 @@
+repository: serhii/bluray-burner
+commit: 596eeda712b8c89954bba798dabad47fec4ebd98
+date: 2026-08-06T06:50:19+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+Handle q as quit in all disc prompts, incl. no-disc retry loop
+
+---
+Source code is NOT published on GitHub.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
