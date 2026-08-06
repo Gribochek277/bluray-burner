@@ -1,0 +1,13 @@
+repository: serhii/bluray-burner
+commit: ffcad35e4f26c6c29ef4ec2d1d79327ce17f6448
+date: 2026-08-07T00:08:38+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+Verify burn success from the log; drop post-burn tray ceremony
+
+---
+Source code is NOT published on GitHub.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
