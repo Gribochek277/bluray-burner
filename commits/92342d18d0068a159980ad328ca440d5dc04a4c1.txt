@@ -1,0 +1,13 @@
+repository: serhii/bluray-burner
+commit: 92342d18d0068a159980ad328ca440d5dc04a4c1
+date: 2026-08-06T05:46:54+03:00
+author: serhii <serhii@jane>
+branches: main
+
+message:
+Blu-ray batch burner: alphabetically ordered folder packing, auto capacity detection, manifest-based resume
+
+---
+Source code is NOT published on GitHub.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
