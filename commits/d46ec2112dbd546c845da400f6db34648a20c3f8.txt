@@ -1,0 +1,19 @@
+repository: serhii/bluray-burner
+commit: d46ec2112dbd546c845da400f6db34648a20c3f8
+date: 2026-08-06T23:02:17+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+Detect blank BD-R capacity via 32h(0) format descriptors
+READ CAPACITY returns 0 on blank discs (it reports the last address of
+the recorded region), so the previous fix detected 0B on a fresh disc.
+growisofs formats blank BD-R with the largest 0x32-class descriptor
+(bd_r_format in growisofs_mmc.cpp) - the max of the '32h(0): N*2048'
+lines in READ FORMAT CAPACITIES is the deterministic usable capacity
+(12,088,320 blocks = 24,756,879,360 B, matches non-blank READ CAPACITY).
+
+---
+Source code is NOT published on GitHub.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
