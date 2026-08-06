@@ -1,0 +1,13 @@
+repository: serhii/bluray-burner
+commit: 82277c22da8c1fc6c65e3e8e2d15e15a8e859d76
+date: 2026-08-06T05:46:29+03:00
+author: serhii <serhii@localhost>
+branches: main
+
+message:
+Initial commit
+
+---
+Source code is NOT published on GitHub.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
