@@ -1,0 +1,13 @@
+repository: serhii/bluray-burner
+commit: d09222506af650ce43ade67023153a567ac23bdb
+date: 2026-08-06T22:49:27+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+Dry-run: detect real disc capacity when a disc is present
+
+---
+Source code is NOT published on GitHub.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
