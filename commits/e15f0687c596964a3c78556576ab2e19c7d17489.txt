@@ -1,0 +1,13 @@
+repository: serhii/bluray-burner
+commit: e15f0687c596964a3c78556576ab2e19c7d17489
+date: 2026-08-06T06:38:40+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+Pre-burn source reachability check to avoid wasting discs on a dead NAS
+
+---
+Source code is NOT published on GitHub.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
