@@ -1,0 +1,19 @@
+repository: serhii/bluray-burner
+commit: 2419407d40240a852776b9891115e331562295a6
+date: 2026-08-08T17:37:55+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+Replace --stage/--cache with a single --safety mode; make --source required
+- --safety cache|staging|none replaces --stage true|false and --cache true|false
+- --source is now a required option; the hardcoded path default is gone
+- Source filesystem type is auto-detected (findmnt/stat -f, deepest mount wins
+  over autofs); staging is downgraded to cache on local disks, 'none' warns
+  when burning from a network source
+- q/Q now aborts from the no-disc retry loop and the overwrite prompt
+
+---
+Source code is NOT published on GitHub.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
