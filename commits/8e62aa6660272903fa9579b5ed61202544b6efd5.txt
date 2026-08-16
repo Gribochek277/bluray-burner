@@ -1,0 +1,18 @@
+repository: serhii/bluray-burner
+commit: 8e62aa6660272903fa9579b5ed61202544b6efd5
+date: 2026-08-17T01:45:21+03:00
+author: Serhii Alpatov <kpbillia219@gmail.com>
+branches: main
+
+message:
+Fix set -e crash on empty drive; harden label computation
+- CAPACITY_BYTES="$(detect_capacity)" returns 1 when no disc is present,
+  which set -e treats as fatal and kills the script before the capacity
+  prompt / 25GB fallback. Wrap with '|| true'.
+- compute_label: 'grep -oP' returns 1 for names without letters; under
+  pipefail that would abort. Add '|| true' to the f3/l3 pipelines.
+
+---
+Source code is NOT published on GitHub.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
