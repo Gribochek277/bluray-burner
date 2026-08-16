@@ -1,0 +1,24 @@
+repository: serhii/bluray-burner
+commit: a23a5388440a8e1f80e9f4b565801246feb440ce
+date: 2026-08-17T01:28:47+03:00
+author: Serhii Alpatov <kpbillia219@gmail.com>
+branches: main
+
+message:
+Support arbitrary source layouts (files/folders/recursive units)
+- Unit layout is chosen interactively on first run (before the project file
+  is created) and saved into .burned_manifest, which is now a JSON object
+  {"mode": ..., "burned": [...]}; old bare-array manifests migrate to
+  folders mode automatically.
+- New --mode files|folders|recursive override; --dry-run shows the full plan
+  for any layout.
+- Units are always selected in alphabetical order (LC_ALL=C / codepoint).
+- Sizes cache keys are JSON-encoded so tabs/newlines in names are safe.
+- Oversized units (> one disc) are reported and skipped, never wedge the run.
+- stage_disc handles both file and directory units (rsync trailing slash).
+- README updated (layouts, --mode, genisoimage/cdrtools dependency notes).
+
+---
+Source code is NOT published on GitHub.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
