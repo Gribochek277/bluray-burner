@@ -1,0 +1,22 @@
+repository: serhii/bluray-burner
+commit: b6d470e3045a4cd4ba31314b0fa863f189b4971e
+date: 2026-08-17T04:03:21+03:00
+author: Serhii Alpatov <kpbillia219@gmail.com>
+branches: main
+
+message:
+Silence BrokenPipeError noise; compute labels with one python call
+plan_first_disc stops reading unit names as soon as the next unit does not
+fit, closing the pipe under list_units' python, which then printed an ugly
+'BrokenPipeError while flushing sys.stdout' (non-fatal, but alarming).
+Python emitters now die silently on SIGPIPE like standard Unix tools.
+
+compute_label no longer runs one find per unit over the network; it takes
+the unit keys and derives the label from basenames in a single python call
+(same rule as the dry-run planner), keeping the disc display snappy on
+gvfs sources.
+
+---
+Source code is NOT published on GitHub.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
