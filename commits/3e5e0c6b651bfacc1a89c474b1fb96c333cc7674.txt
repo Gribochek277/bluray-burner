@@ -1,0 +1,20 @@
+repository: serhii/bluray-burner
+commit: 3e5e0c6b651bfacc1a89c474b1fb96c333cc7674
+date: 2026-08-17T05:16:55+03:00
+author: Serhii Alpatov <kpbillia219@gmail.com>
+branches: main
+
+message:
+Drop case-duplicate files instead of cancelling the disc
+Joliet is case-insensitive: '...Because I Don't Know!' and
+'...because I DON'T KNOW!' collide on the ISO. When the colliding files
+have the SAME size they are duplicates - the first one stays, the second
+is dropped, marked 'skipped' in the manifest (separate from 'burned') and
+the burn proceeds. Different-size collisions are real conflicts and still
+abort the disc. Dry-run previews both cases per disc. Also fixed the
+in-memory burned set not being updated after mark_skipped.
+
+---
+Source code is NOT published on GitHub.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
