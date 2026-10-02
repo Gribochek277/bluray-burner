@@ -1,0 +1,37 @@
+repository: serhii/bluray-burner
+commit: 19349e2596e193f8191d852d94a0819bd41c8555
+date: 2026-10-03T02:35:48+03:00
+author: Serhii Alpatov <kpbillia219@gmail.com>
+branches: main
+
+message:
+Plan Joliet names instead of cancelling: shorten, don't fail the disc
+genisoimage with -joliet-long hard-truncates every Joliet name to 103
+characters, extension included, and aborts the whole build when two names
+share that prefix ("have the same Joliet name", rc=255) - so a single
+over-long name or a pair of long twins could kill a disc *after* 20+ GB
+were staged. The old pre-check only caught the case-collision half of
+this and exited on any real conflict.
+
+Replace validate_iso_names with plan_iso_names, which plans the on-disc
+names instead of giving up:
+
+  * byte-identical copies are dropped as before (now byte-compared, not
+    size-compared) and marked skipped in the project;
+  * real collisions and names longer than 103 chars are shortened to fit,
+    keeping the extension and the informative tail, with a stable ~N tag
+    (the file's position in its sorted collision group) inside the first
+    103 chars so the name stays unique after truncation.
+
+Renames happen on the disc only: they are passed to growisofs as
+-graft-points pairs, so the source files, the staging copy and the
+project state keep their original names, and Rock Ridge still exposes the
+full name on Linux. --dry-run prints every planned rename.
+
+README documents the Joliet limit, the shortening rules and the
+graft-points mechanism.
+
+---
+Source code is NOT published on GitHub.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
