@@ -1,0 +1,31 @@
+repository: serhii/bluray-burner
+commit: 71611f9f1e9bf578b08ff949c3c8fbb732531d2d
+date: 2026-10-03T03:03:59+03:00
+author: Serhii Alpatov <kpbillia219@gmail.com>
+branches: main
+
+message:
+Show live staging progress in percent
+--safety staging used to print one line per unit and then be silent for the
+whole copy (10-20+ min per disc on a NAS) - no idea whether it was moving
+or hung. Now rsync runs in the background while the script repaints a
+single line once per second with the overall progress of the disc:
+
+  -> unit 5/23: Tohoku ... (USA)
+  [staging]  45%  9.1G / 20.4G  63s
+
+The denominator is the disc's total byte count from the size cache (the
+200 MB free-space margin excluded), so the percentage accumulates across
+units and reaches 100% when the last one is staged. A per-unit
+"unit N/M" line shows which copy is in flight, and a final repaint is
+printed after each rsync so the line never ends mid-update.
+
+The per-second size read uses du -sb (apparent size of the staging dir)
+and a small awk byte formatter, so no python3 startup per repaint;
+rsync's own output is captured to a temp file and dumped to stderr only
+on a failed attempt (retry and cancel behaviour unchanged).
+
+---
+Source code is NOT published on GitHub.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
